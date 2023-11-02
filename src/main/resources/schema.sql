@@ -1,0 +1,8 @@
+--CREATE TABLE IF NOT EXISTS Account (
+--    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+--    userId BIGINT,
+--    accountType VARCHAR(255),
+--    accountNumber BIGINT,
+--    balance DOUBLE,
+--    status VARCHAR(255)
+--);
