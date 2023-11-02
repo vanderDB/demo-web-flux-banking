@@ -17,8 +17,8 @@ public class Account {
     @Id
     private Long id;
 
-    @Column("user_id")
-    private Long userId;
+    @Column("client_id")
+    private Long clientId;
     @Column("account_type")
     private String accountType;
     @Column("account_number")
@@ -29,5 +29,5 @@ public class Account {
     private String status;
 
     @Transient
-    private User user;
+    private Client client;
 }

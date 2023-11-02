@@ -11,8 +11,20 @@ public class AccountService {
 
     @Autowired
     private AccountRepo accountRepo;
+    @Autowired
+    private ClientService clientService;
 
     public Mono<Account> findAccountById(Long id) {
-        return accountRepo.findById(id);
+
+        return accountRepo.findById(id)
+                .flatMap(account -> {
+                    if (account.getClientId() != null) {
+                        return clientService.findClientById(account.getClientId())
+                                .doOnNext(account::setClient)
+                                .thenReturn(account);
+                    } else {
+                        return Mono.just(account);
+                    }
+                });
     }
 }

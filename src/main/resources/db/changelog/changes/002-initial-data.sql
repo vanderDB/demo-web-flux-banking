@@ -1,9 +1,9 @@
-INSERT INTO "user" (first_name, last_name, email)
+INSERT INTO "client" (first_name, last_name, email)
 VALUES
     ('John', 'Doe', 'john@example.com'),
     ('Jane', 'Smith', 'jane@example.com');
 
-INSERT INTO "account" (user_id, account_type, account_number, balance, status)
+INSERT INTO "account" (client_id, account_type, account_number, balance, status)
 VALUES
     (1, 'Savings', 123456, 1000.00, 'Active'),
     (2, 'Checking', 789012, 2500.00, 'Active');
