@@ -10,6 +10,6 @@ VALUES
 
 INSERT INTO "transaction" (account_id, transaction_type, amount, transaction_date)
 VALUES
-    (1, 'Deposit', 500.00, '2023-11-01'),
-    (1, 'Withdrawal', 200.00, '2023-11-02'),
-    (2, 'Deposit', 1000.00, '2023-11-03');
+    (1, 'Deposit', 500.00, '2023-11-01 00:00:00'),
+    (1, 'Withdrawal', 200.00, '2023-11-02 00:00:00'),
+    (2, 'Deposit', 1000.00, '2023-11-03 00:00:00');

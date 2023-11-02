@@ -20,6 +20,6 @@ CREATE TABLE IF NOT EXISTS "transaction" (
     account_id BIGINT,
     transaction_type VARCHAR(255),
     amount DOUBLE PRECISION,
-    transaction_date DATE,
+    transaction_date TIMESTAMP,
     FOREIGN KEY (account_id) REFERENCES "account" (id)
 );
