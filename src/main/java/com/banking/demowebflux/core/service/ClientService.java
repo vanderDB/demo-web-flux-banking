@@ -1,6 +1,5 @@
 package com.banking.demowebflux.core.service;
 
-import com.banking.demowebflux.core.domain.sql.Account;
 import com.banking.demowebflux.core.domain.sql.Client;
 import com.banking.demowebflux.core.repository.ClientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,18 @@ public class ClientService {
 
     @Autowired
     private ClientRepo userRepo;
+    @Autowired
+    private AccountService accountService;
 
-    public Mono<Client> findClientById(Long id) {
+    public Mono<Client> findClientById(Long clientId) {
 
-        return userRepo.findById(id);
+        return userRepo.findById(clientId)
+                .zipWith(accountService.findAccountsByClientId(clientId).collectList())
+                .map(result -> {
+                    Client client = result.getT1();
+                    var accounts = result.getT2();
+                    client.setAccounts(accounts);
+                    return client;
+                });
     }
 }

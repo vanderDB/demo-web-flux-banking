@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/v1/users")
-public class UserController {
+@RequestMapping("/api/v1/clients")
+public class ClientController {
 
     @Autowired
     private ClientService clientService;
