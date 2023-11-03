@@ -1,5 +1,6 @@
 package com.banking.demowebflux.core.domain.sql;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Account {
 
     @Id
