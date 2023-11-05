@@ -2,6 +2,7 @@ package com.banking.demowebflux.core.service;
 
 import com.banking.demowebflux.core.domain.sql.Client;
 import com.banking.demowebflux.core.repository.ClientRepo;
+import com.banking.demowebflux.web.bean.CreateClientBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -29,7 +30,10 @@ public class ClientService {
                 });
     }
 
-    public Mono<Client> addClient(Client client) {
+    public Mono<Client> addClient(CreateClientBean createClientBean) {
+
+        var client = new Client(createClientBean);
+
         return clientRepo.save(client);
     }
 

@@ -1,5 +1,6 @@
 package com.banking.demowebflux.core.domain.sql;
 
+import com.banking.demowebflux.web.bean.CreateClientBean;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,4 +30,11 @@ public class Client {
 
     @Transient
     private List<Account> accounts;
+
+    public Client(CreateClientBean createClientBean) {
+
+        this.firstName = createClientBean.getFirstName();
+        this.lastName = createClientBean.getLastName();
+        this.email = createClientBean.getEmail();
+    }
 }
