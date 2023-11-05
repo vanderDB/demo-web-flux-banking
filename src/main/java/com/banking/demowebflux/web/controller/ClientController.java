@@ -3,11 +3,10 @@ package com.banking.demowebflux.web.controller;
 import com.banking.demowebflux.core.domain.sql.Client;
 import com.banking.demowebflux.core.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -23,5 +22,18 @@ public class ClientController {
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound()
                         .build());
+    }
+
+    @PostMapping
+    public Mono<ResponseEntity<Client>> addClient(@RequestBody Client client) {
+        return clientService.addClient(client)
+                .map(ResponseEntity::ok);
+    }
+
+    @PostMapping("/find-all")
+    public Mono<ResponseEntity<Page<Client>>> findAllClients(Pageable pageable) {
+
+        return clientService.findAllClients(pageable)
+                .flatMap(clientsPage -> Mono.just(ResponseEntity.ok(clientsPage)));
     }
 }
