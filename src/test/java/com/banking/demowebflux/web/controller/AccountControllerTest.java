@@ -27,4 +27,20 @@ public class AccountControllerTest extends AbstractWebIntegrationTest {
                 .jsonPath("$.balance").isEqualTo(expectedBalance)
                 .jsonPath("$.status").isEqualTo(expectedStatus);
     }
+
+    @Test
+    public void whenFetchNotExistedAccountById_thenSpecificAccountExpected() {
+
+        long notExistedAccountId = 189;
+
+        webClient.get()
+                .uri("/api/v1/accounts/{id}", notExistedAccountId)
+                .exchange()
+                .expectStatus().isNotFound()
+                .expectHeader().contentType(MediaType.APPLICATION_JSON_VALUE)
+                .expectBody()
+                .jsonPath("$.messages[0]").isEqualTo("Account not found for ID: 189")
+                .jsonPath("$.timestamp").isNotEmpty()
+                .jsonPath("$.serverDateTime").isNotEmpty();
+    }
 }

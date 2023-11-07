@@ -20,8 +20,6 @@ public class AccountController {
     @GetMapping("/{id}")
     public Mono<ResponseEntity<Account>> getAccount(@PathVariable long id) {
         return accountService.findAccountById(id)
-                .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound()
-                        .build());
+                .map(ResponseEntity::ok);
     }
 }
