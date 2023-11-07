@@ -1,7 +1,6 @@
-package com.banking.demowebflux.service;
+package com.banking.demowebflux.core.service;
 
-import com.banking.demowebflux.configuration.AbstractIntegrationTest;
-import com.banking.demowebflux.core.service.ClientService;
+import com.banking.demowebflux.configuration.AbstractServiceIntegrationTest;
 import com.banking.demowebflux.web.bean.CreateClientBean;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ClientServiceTest extends AbstractIntegrationTest {
+public class ClientServiceTest extends AbstractServiceIntegrationTest {
 
     @Autowired
     private ClientService clientService;

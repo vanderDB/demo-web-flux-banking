@@ -1,18 +1,14 @@
 package com.banking.demowebflux.configuration;
 
-import com.banking.demowebflux.utils.TrxStepVerifier;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @Import(R2dbcConfiguration.class)
 public class AbstractIntegrationTest {
 
-    @Autowired
-    protected TrxStepVerifier trxStepVerifier;
 
     //    @Test
 //    public void whenDeleteAll_then0IsExpected() {
