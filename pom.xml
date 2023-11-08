@@ -10,7 +10,9 @@
 	</parent>
 	<groupId>com.banking</groupId>
 	<artifactId>demo-web-flux</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.5-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
 	<name>demo-web-flux</name>
 	<description>Demo reactive project for Spring Boot (WebFlux)</description>
 	<properties>
@@ -97,11 +99,14 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}.${project.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${project.parent.version}</version>
 				<configuration>
+					<executable>true</executable>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
