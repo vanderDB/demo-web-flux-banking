@@ -3,14 +3,13 @@ package com.banking.demowebflux.web.controller;
 import com.banking.demowebflux.core.domain.sql.Client;
 import com.banking.demowebflux.core.service.ClientService;
 import com.banking.demowebflux.web.bean.CreateClientBean;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
-
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/clients")

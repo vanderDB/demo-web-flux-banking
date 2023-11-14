@@ -49,4 +49,12 @@ public class AccountService {
                 .flatMapMany(account -> transactionService.findTransactionByAccountId(account.getId()))
                 .switchIfEmpty(Mono.error(new ElementNotFoundException("Transactions not found for account ID: " + accountId)));
     }
+
+    //webflux
+    //posgres
+    //r2dbc
+    //redis для кэша
+    //jwttoketn
+    //java 17
+    //spring boot 3
 }
